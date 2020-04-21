@@ -1,6 +1,13 @@
 
 /*------------------ADD INFO IN TABLE------------------*/
 
+/*window.onload = function(){
+  let addInfoPreventDefault = document.getElementById('btn-addInfo').addEventListener('click', function(event){
+    event.preventDefault();
+    window.history.back();
+  });
+}*/
+
 function addInfo(){
   let technology = document.getElementById('technology').value;
   let experience = document.getElementById('experience').value;
@@ -33,26 +40,50 @@ function btnRemoveInfo(){
 
 /*------------------ANIMATION BUTTONS------------------*/
 
+function btnAddOnClick(){
+  let button = document.getElementById("btn-addInfo");
+  let btnPropreties = button;
+  btnPropreties.style.background = '#45a049';
+  btnPropreties.innerText = 'ADDED';
+}
 
-window.onload = function(){
-  function btnAddOnClick(){
-    let button = document.getElementById("btn-addInfo");
-    let btnPropreties = button;
-    btnPropreties.style.background = '#45a049';
-    btnPropreties.innerText = 'ADDED';
-  }
-  let btnAddClick = document.getElementById('btn-addInfo');
-  btnAddClick.addEventListener("click", btnAddOnClick);
+function btnAddMouseEnter(){
+  let button = document.getElementById("btn-addInfo");
+  let btnPropreties = button;
+  btnPropreties.style.background = '#3399FF';
+}
 
-
-  function btnAddMouseOut(){
-    let button = document.getElementById("btn-addInfo");
-    let btnPropreties = button;
-    btnPropreties.style.background = '#FF8000';
-    btnPropreties.innerText = 'ADD';
-  }
-  let btnAddOut = document.getElementById('btn-addInfo');
-  btnAddOut = addEventListener("mouseout", btnAddMouseOut);
+function btnAddMouseOut(){
+  let button = document.getElementById("btn-addInfo");
+  let btnPropreties = button;
+  btnPropreties.style.background = '#0066CC';
+  btnPropreties.innerText = 'ADD';
 }
 
 /*------------------ANIMATION BUTTONS------------------*/
+
+/*------------------CHECK INPUT TEXT------------------*/
+
+function checkInputText(){
+  let inTechnology = document.getElementById("technology");
+  let inExperience = document.getElementById("experience");
+
+  if(inTechnology.value == '' || inExperience.value == ''){
+    alert('É obrigatório introduzir uma técnologia e a sua experiência!');
+    return false;
+  }
+}
+
+/*------------------CHECK INPUT TEXT------------------*/
+
+/*------------------CONFIRM REMOVE ROW------------------*/
+
+
+function confirmRemoveRow(){
+  if(document.getElementById('btn-removeInfo').clicked==true){
+    console.log('clicado');
+    alert('clicado');
+  }
+}
+
+/*------------------COMFIRM REMOVE ROW------------------*/
