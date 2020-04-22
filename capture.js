@@ -11,18 +11,27 @@ window.onload = function(){
 function addInfo(){
   let technology = document.getElementById('technology').value;
   let experience = document.getElementById('experience').value;
+  let button = document.getElementById('btn-addInfo');
+  let btnPropreties = button;
 
-  let table = document.getElementsByTagName('table') [0];
+  if(technology == '' || experience == ''){
+    alert('É obrigatório introduzir uma técnologia e a sua experiência!');
+  }else{
+    let table = document.getElementsByTagName('table') [0];
 
-  let newRow = table.insertRow(1);
+    let newRow = table.insertRow(1);
 
-  let cell1 = newRow.insertCell(0);
-  let cell2 = newRow.insertCell(1);
-  let cell3 = newRow.insertCell(2);
+    let cell1 = newRow.insertCell(0);
+    let cell2 = newRow.insertCell(1);
+    let cell3 = newRow.insertCell(2);
 
-  cell1.innerHTML = technology;
-  cell2.innerHTML = experience;
-  cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo(); confirmRemoveRow();" type="submit">Delete</button>';
+    cell1.innerHTML = technology;
+    cell2.innerHTML = experience;
+    cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo();" type="submit">Delete</button>';
+
+    btnPropreties.style.background = '#45a049';
+    btnPropreties.innerText = 'ADDED';
+  }
 }
 
 /*------------------ADD INFO IN TABLE------------------*/
@@ -30,22 +39,20 @@ function addInfo(){
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
 function btnRemoveInfo(){
+  if (window.confirm('Deseja mesmo eliminar essa tecnologia?')){
     let button = event.target;
     let tdCell = button.parentNode;
     let trRow = tdCell.parentNode;
     trRow.remove();
+  }else{
+    return false;
+  }
+
   }
 
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
 /*------------------ANIMATION BUTTONS------------------*/
-
-function btnAddOnClick(){
-  let button = document.getElementById("btn-addInfo");
-  let btnPropreties = button;
-  btnPropreties.style.background = '#45a049';
-  btnPropreties.innerText = 'ADDED';
-}
 
 function btnAddMouseEnter(){
   let button = document.getElementById("btn-addInfo");
@@ -62,28 +69,17 @@ function btnAddMouseOut(){
 
 /*------------------ANIMATION BUTTONS------------------*/
 
-/*------------------CHECK INPUT TEXT------------------*/
+/*------------------CHECK TECHNOLOGY IF EXIST------------------*/
 
-function checkInputText(e){
-  let inTechnology = document.getElementById("technology");
-  let inExperience = document.getElementById("experience");
-
-  if(inTechnology.value == '' || inExperience.value == ''){
-    alert('É obrigatório introduzir uma técnologia e a sua experiência!');
-    return false;
-    e.preventDefault();
-  }
+//ESTA FUNÇÃO ESTÁ A DAR ERROOOOOOOOO NÃO SEI PORQUÊ  :)))
+//checkTechnology UNDEFINED????????????
+function checkTechnology(){
+  let tdTechnology = getElementById('table');
+  for (let r = 0, i = tdTechnology.rows.length; r < i; r++) { //percorre a linha
+        for (let c = 0, j = tdTechnology.rows[r].cells.length; c < j; c++) { //percorre as ceculas da linha
+            console.log(tdTechnology.rows[r].cells[c]);//imprime
+        }
+    }
 }
 
-/*------------------CHECK INPUT TEXT------------------*/
-
-/*------------------CONFIRM REMOVE ROW------------------*/
-
-function confirmRemoveRow(){
-  if(document.getElementById('btn-removeInfo').onclick){
-    console.log('clicado');
-    alert('clicado');
-  }
-}
-
-/*------------------COMFIRM REMOVE ROW------------------*/
+/*------------------CHECK TECHNOLOGY IF EXIST------------------*/
