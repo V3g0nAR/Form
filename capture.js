@@ -1,12 +1,12 @@
 
 /*------------------ADD INFO IN TABLE------------------*/
 
-/*window.onload = function(){
-  let addInfoPreventDefault = document.getElementById('btn-addInfo').addEventListener('click', function(event){
-    event.preventDefault();
-    window.history.back();
+window.onload = function(){
+  let form = document.getElementById('form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
   });
-}*/
+}
 
 function addInfo(){
   let technology = document.getElementById('technology').value;
@@ -22,7 +22,7 @@ function addInfo(){
 
   cell1.innerHTML = technology;
   cell2.innerHTML = experience;
-  cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo();" type="submit">Delete</button>';
+  cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo(); confirmRemoveRow();" type="submit">Delete</button>';
 }
 
 /*------------------ADD INFO IN TABLE------------------*/
@@ -64,13 +64,14 @@ function btnAddMouseOut(){
 
 /*------------------CHECK INPUT TEXT------------------*/
 
-function checkInputText(){
+function checkInputText(e){
   let inTechnology = document.getElementById("technology");
   let inExperience = document.getElementById("experience");
 
   if(inTechnology.value == '' || inExperience.value == ''){
     alert('É obrigatório introduzir uma técnologia e a sua experiência!');
     return false;
+    e.preventDefault();
   }
 }
 
@@ -78,9 +79,8 @@ function checkInputText(){
 
 /*------------------CONFIRM REMOVE ROW------------------*/
 
-
 function confirmRemoveRow(){
-  if(document.getElementById('btn-removeInfo').clicked==true){
+  if(document.getElementById('btn-removeInfo').onclick){
     console.log('clicado');
     alert('clicado');
   }
