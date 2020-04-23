@@ -8,11 +8,22 @@ window.onload = function(){
   });
 }
 
+const roles = [];
+
 function addInfo(){
   let technology = document.getElementById('technology').value;
   let experience = document.getElementById('experience').value;
   let button = document.getElementById('btn-addInfo');
   let btnPropreties = button;
+
+  roles.push({tech: technology, exp: experience});
+  roles.forEach(function(element){
+    if(element.tech == technology){
+      console.log('true');
+    }else{
+      console.log('false');
+    }
+  });
 
   if(technology == '' || experience == ''){
     alert('É obrigatório introduzir uma técnologia e a sua experiência!');
@@ -68,18 +79,3 @@ function btnAddMouseOut(){
 }
 
 /*------------------ANIMATION BUTTONS------------------*/
-
-/*------------------CHECK TECHNOLOGY IF EXIST------------------*/
-
-//ESTA FUNÇÃO ESTÁ A DAR ERROOOOOOOOO NÃO SEI PORQUÊ  :)))
-//checkTechnology UNDEFINED????????????
-function checkTechnology(){
-  let tdTechnology = getElementById('table');
-  for (let r = 0, i = tdTechnology.rows.length; r < i; r++) { //percorre a linha
-        for (let c = 0, j = tdTechnology.rows[r].cells.length; c < j; c++) { //percorre as ceculas da linha
-            console.log(tdTechnology.rows[r].cells[c]);//imprime
-        }
-    }
-}
-
-/*------------------CHECK TECHNOLOGY IF EXIST------------------*/
