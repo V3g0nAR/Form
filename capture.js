@@ -16,18 +16,20 @@ function addInfo(){
   let button = document.getElementById('btn-addInfo');
   let btnPropreties = button;
 
-  roles.push({tech: technology, exp: experience});
+  let techExists = false;
+
   roles.forEach(function(element){
-    if(element.tech == technology){
-      console.log('true');
-    }else{
-      console.log('false');
+    if(technology === element.tech){
+      techExists = true;
     }
   });
 
   if(technology == '' || experience == ''){
     alert('É obrigatório introduzir uma técnologia e a sua experiência!');
-  }else{
+  }else if(techExists){
+    alert('Essa tecnologia já se encontra registada!');
+  }else if(!techExists){
+    roles.push({tech: technology, exp: experience});
     let table = document.getElementsByTagName('table') [0];
 
     let newRow = table.insertRow(1);
@@ -44,6 +46,7 @@ function addInfo(){
     btnPropreties.innerText = 'ADDED';
   }
 }
+
 
 /*------------------ADD INFO IN TABLE------------------*/
 
