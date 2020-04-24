@@ -29,7 +29,7 @@ function addInfo(){
   }else if(techExists){
     alert('Essa tecnologia já se encontra registada!');
   }else if(!techExists){
-    roles.push({tech: technology, exp: experience});
+    let obj = roles.push({tech: technology, exp: experience});
     let table = document.getElementsByTagName('table') [0];
 
     let newRow = table.insertRow(1);
@@ -54,10 +54,16 @@ function addInfo(){
 
 function btnRemoveInfo(){
   if (window.confirm('Deseja mesmo eliminar essa tecnologia?')){
-    let button = event.target;
-    let tdCell = button.parentNode;
-    let trRow = tdCell.parentNode;
-    trRow.remove();
+    for(let i = 0; i < roles.length; i++){
+      if(roles[i] === roles.tech){ // roles.tech é undefined
+        //como obtenho o elemento especifico?
+        delete roles[i];
+        let button = event.target;
+        let tdCell = button.parentNode;
+        let trRow = tdCell.parentNode;
+        trRow.remove();
+      }
+    }
   }else{
     return false;
   }
