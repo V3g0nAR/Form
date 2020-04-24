@@ -38,8 +38,12 @@ function addInfo(){
     let cell2 = newRow.insertCell(1);
     let cell3 = newRow.insertCell(2);
 
-    cell1.innerHTML = technology;
-    cell2.innerHTML = experience;
+    roles.forEach(function(element){
+      cell1.innerHTML = element.tech;
+      cell2.innerHTML = element.exp;
+    });
+    //cell1.innerHTML = technology;
+    //cell2.innerHTML = experience;
     cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo();" type="submit">Delete</button>';
 
     btnPropreties.style.background = '#45a049';
@@ -53,17 +57,20 @@ function addInfo(){
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
 function btnRemoveInfo(){
+
+  /*roles.forEach(function(element){
+    console.log(element.tech);
+  });*/
+
+  /*for(let i = 0; i <= roles.length; i++){
+    console.log(roles[i]);
+  }*/
   if (window.confirm('Deseja mesmo eliminar essa tecnologia?')){
-    for(let i = 0; i < roles.length; i++){
-      if(roles[i] === roles.tech){ // roles.tech é undefined
-        //como obtenho o elemento especifico?
-        delete roles[i];
         let button = event.target;
         let tdCell = button.parentNode;
         let trRow = tdCell.parentNode;
+        roles.splice(trRow);
         trRow.remove();
-      }
-    }
   }else{
     return false;
   }
