@@ -30,6 +30,7 @@ function addInfo(){
     alert('Essa tecnologia já se encontra registada!');
   }else if(!techExists){
     let obj = roles.push({tech: technology, exp: experience});
+
     let table = document.getElementsByTagName('table') [0];
 
     let newRow = table.insertRow(1);
@@ -44,7 +45,7 @@ function addInfo(){
     });
     //cell1.innerHTML = technology;
     //cell2.innerHTML = experience;
-    cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo();" type="submit">Delete</button>';
+    cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo(); startPopUp();" type="submit">Delete</button>';
 
     btnPropreties.style.background = '#45a049';
     btnPropreties.innerText = 'ADDED';
@@ -57,25 +58,14 @@ function addInfo(){
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
 function btnRemoveInfo(){
-
-  /*roles.forEach(function(element){
-    console.log(element.tech);
-  });*/
-
-  /*for(let i = 0; i <= roles.length; i++){
-    console.log(roles[i]);
-  }*/
-  if (window.confirm('Deseja mesmo eliminar essa tecnologia?')){
-        let button = event.target;
-        let tdCell = button.parentNode;
-        let trRow = tdCell.parentNode;
-        roles.splice(trRow);
-        trRow.remove();
-  }else{
-    return false;
-  }
-
-  }
+  //if(startPopUp()){
+    let button = event.target;
+    let tdCell = button.parentNode;
+    let trRow = tdCell.parentNode;
+    roles.splice(trRow);
+    trRow.remove();
+  //}
+}
 
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
@@ -95,3 +85,23 @@ function btnAddMouseOut(){
 }
 
 /*------------------ANIMATION BUTTONS------------------*/
+
+function startPopUp(){
+  let btnDelete = document.getElementById('btn-delete');
+  let btnCancel = document.getElementById('btn-cancel');
+  let idDelete = document.getElementById('pop-up-container');
+  if(idDelete){
+    idDelete.classList.add('show');
+    idDelete.addEventListener('click', (e) => {
+      //console.log(e.target.id);
+      if(e.target.className == 'btn-delete'){
+        btnRemoveInfo();
+        idDelete.classList.remove('show');
+      }else if (e.target.className == 'btn-cancel'){
+        idDelete.classList.remove('show');
+      }else if(e.target.id == 'close' || e.target == idDelete){
+        idDelete.classList.remove('show');
+      }
+    });
+  }
+}
