@@ -45,7 +45,7 @@ function addInfo(){
     });
     //cell1.innerHTML = technology;
     //cell2.innerHTML = experience;
-    cell3.innerHTML = '<button id="btn-removeInfo" onclick="btnRemoveInfo(); startPopUp();" type="submit">Delete</button>';
+    cell3.innerHTML = '<button id="btn-removeInfo" onclick="popUpDelete();" type="submit">Delete</button>';
 
     btnPropreties.style.background = '#45a049';
     btnPropreties.innerText = 'ADDED';
@@ -58,8 +58,9 @@ function addInfo(){
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
 function btnRemoveInfo(){
-  //if(startPopUp()){
-    let button = event.target;
+  //if(!startPopUp()){
+    let button = document.getElementById('btn-removeInfo');
+    //let button = event.target;
     let tdCell = button.parentNode;
     let trRow = tdCell.parentNode;
     roles.splice(trRow);
@@ -86,9 +87,7 @@ function btnAddMouseOut(){
 
 /*------------------ANIMATION BUTTONS------------------*/
 
-function startPopUp(){
-  let btnDelete = document.getElementById('btn-delete');
-  let btnCancel = document.getElementById('btn-cancel');
+function popUpDelete(){
   let idDelete = document.getElementById('pop-up-container');
   if(idDelete){
     idDelete.classList.add('show');
