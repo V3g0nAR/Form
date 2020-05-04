@@ -13,17 +13,18 @@
 
           <div class="container-form">
             <form id="form">
+              <p id="msg-empty" class="msg-empty"></p>
               <label for="technology">Tecnologia:</label>
               <br />
-              <input type="text" name="technology" id="technology" />
-              <br />
-              <br />
+              <input oninput="xd();" type="text" name="technology" id="technology" />
+              <p id="msg-empty-technology" class="msg-empty-technology"></p>
+              <p id="msg-technology-exist" class="msg-technology-exist"></p>
               <label for="experience">Experiência:</label>
               <br />
               <input type="text" name="experience" id="experience" />
-              <br />
-              <br />
+              <p id="msg-empty-experience" class="msg-empty-experience"></p>
               <button id="btn-addInfo" onclick="addInfo();" onmouseenter="btnAddMouseEnter();" onmouseout="btnAddMouseOut();" type="submit">ADD</button>
+              <br />
             </form>
           </div>
 
