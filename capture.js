@@ -15,7 +15,6 @@ function msgOnInput(){
   let technology = document.getElementById('technology').value;
   let msgTechExist = document.getElementById('msg-technology-exist');
   let msgEmptyTech = document.getElementById('msg-empty-technology');
-  let msgEmptyExp = document.getElementById('msg-empty-experience');
 
   let techExists = false;
 
@@ -40,7 +39,6 @@ function addInfo(){
   let msgEmpty = document.getElementById('msg-empty');
   let msgEmptyTech = document.getElementById('msg-empty-technology');
   let msgEmptyExp = document.getElementById('msg-empty-experience');
-  let msgError = document.getElementById('msg-error');
   let btnPropreties = button;
 
   let techExists = false;
