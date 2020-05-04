@@ -11,9 +11,11 @@ window.onload = function(){
 
 const roles = [];
 
-function xd(){
+function msgOnInput(){
   let technology = document.getElementById('technology').value;
   let msgTechExist = document.getElementById('msg-technology-exist');
+  let msgEmptyTech = document.getElementById('msg-empty-technology');
+  let msgEmptyExp = document.getElementById('msg-empty-experience');
 
   let techExists = false;
 
@@ -23,8 +25,10 @@ function xd(){
     }
   });
   if (techExists){
+    msgEmptyTech.innerHTML = ('');
     msgTechExist.innerHTML = ('Essa tecnologia já se encontra registada!');
   }else{
+    msgEmptyTech.innerHTML = ('');
     msgTechExist.innerHTML = ('');
   }
 }
@@ -60,14 +64,6 @@ function addInfo(){
     msgEmpty.innerHTML = ('');
     msgEmptyTech.innerHTML = ('');
     msgEmptyExp.innerHTML = ('É obrigatório introduzir a sua experiência!');
-  }else if(techExists){
-    msgEmpty.innerHTML = ('');
-    console.log(technology);
-    //xd();
-    /*msgError.addEventListener("input", () => {
-      msgError.innerHTML = ('Essa tecnologia já se encontra registada!');
-    });*/
-    //alert('Essa tecnologia já se encontra registada!');
   }else if(!techExists){
     msgEmpty.innerHTML = ('');
     msgEmptyTech.innerHTML = ('');
