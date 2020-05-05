@@ -19,7 +19,7 @@ function msgOnInput(){
   let techExists = false;
 
   roles.forEach(function(element){
-    if(technology === element.tech){
+    if(technology.toLowerCase() === element.tech.toLowerCase()){
       techExists = true;
     }
   });
@@ -45,7 +45,7 @@ function addInfo(){
   let techExists = false;
 
   roles.forEach(function(element){
-    if(technology === element.tech){
+    if(technology.toLowerCase() === element.tech.toLowerCase()){
       techExists = true;
     }
   });
@@ -68,9 +68,7 @@ function addInfo(){
     msgEmpty.innerHTML = ('');
     msgEmptyTech.innerHTML = ('');
     msgEmptyExp.innerHTML = ('');
-
-    let obj = roles.push({tech: technology, exp: experience});
-
+    roles.push({tech: technology, exp: experience});
     let table = document.getElementsByTagName('table') [0];
 
     let newRow = table.insertRow(1);
@@ -85,12 +83,10 @@ function addInfo(){
     });
     //cell1.innerHTML = technology;
     //cell2.innerHTML = experience;
-    
-  
+
     cell3.innerHTML = `<button id="btn-removeInfo" onclick="popUpDelete(${technology});" type="submit">Delete</button>`;
     btnPropreties.style.background = '#45a049';
     btnPropreties.innerText = 'ADDED';
-
     document.getElementById('technology').value = '';
     document.getElementById('experience').value = '';
   }
