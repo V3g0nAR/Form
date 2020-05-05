@@ -30,6 +30,7 @@ function msgOnInput(){
     msgEmptyTech.innerHTML = ('');
     msgTechExist.innerHTML = ('');
   }
+
 }
 
 function addInfo(){
@@ -57,7 +58,8 @@ function addInfo(){
     msgEmpty.innerHTML = ('');
     msgEmptyExp.innerHTML = ('');
     msgEmptyTech.innerHTML = ('É obrigatório introduzir uma tecnologia!');
-    //alert('É obrigatório introduzir uma técnologia e a sua experiência!');
+  }else if (techExists){
+    msgEmptyExp.innerHTML = (''); 
   }else if(experience == ''){
     msgEmpty.innerHTML = ('');
     msgEmptyTech.innerHTML = ('');
@@ -66,6 +68,7 @@ function addInfo(){
     msgEmpty.innerHTML = ('');
     msgEmptyTech.innerHTML = ('');
     msgEmptyExp.innerHTML = ('');
+
     let obj = roles.push({tech: technology, exp: experience});
 
     let table = document.getElementsByTagName('table') [0];
