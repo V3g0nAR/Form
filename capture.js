@@ -1,5 +1,4 @@
 
-/*------------------ADD INFO IN TABLE------------------*/
 
 window.onload = function(){
   let form = document.getElementById('form');
@@ -10,6 +9,8 @@ window.onload = function(){
 
 
 const roles = [];
+
+/*------------------MSG ON INPUT------------------*/
 
 function msgOnInput(){
   let technology = document.getElementById('technology').value;
@@ -30,8 +31,11 @@ function msgOnInput(){
     msgEmptyTech.innerHTML = ('');
     msgTechExist.innerHTML = ('');
   }
-
 }
+
+/*------------------MSG ON INPUT------------------*/
+
+/*------------------ADD INFO IN TABLE------------------*/
 
 function addInfo(){
   let technology = document.getElementById('technology').value;
@@ -81,10 +85,9 @@ function addInfo(){
       cell1.innerHTML = element.tech;
       cell2.innerHTML = element.exp;
     });
-    //cell1.innerHTML = technology;
-    //cell2.innerHTML = experience;
 
-    cell3.innerHTML = `<button id="btn-removeInfo" onclick="popUpDelete(${technology});" type="submit">Delete</button>`;
+    cell3.innerHTML = '<button id="btn-removeInfo" type="submit">Delete</button>';
+    cell3.onclick = () => popUpDelete(technology, newRow);
     btnPropreties.style.background = '#45a049';
     btnPropreties.innerText = 'ADDED';
     document.getElementById('technology').value = '';
@@ -92,34 +95,21 @@ function addInfo(){
   }
 }
 
-
 /*------------------ADD INFO IN TABLE------------------*/
 
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
 
-function btnRemoveInfo(name){
-  console.log(name);
-  let indexDoObjeto;
+function btnRemoveInfo(name, row){
+  let msgTechExist = document.getElementById('msg-technology-exist');
+  let indexOfObject;
   roles.forEach((element, index) => {
     if(element.tech === name){
-      indexDoObjeto = index;
-      console.log(indexDoObjeto);
-      
-      roles.splice(indexDoObjeto, 1);
-      
+      indexOfObject = index;
+      roles.splice(indexOfObject, 1);
+      msgTechExist.innerHTML = ('');
     }
-    
   });
-
-  /*let button = document.getElementById('btn-removeInfo');
-  //let button = event.target;
-  let tdCell = button.parentNode;
-  let trRow = tdCell.parentNode;
-  //roles.splice(trRow);
-  trRow.remove();*/
-  
-
-  
+  row.remove(); 
 }
 
 /*------------------REVOME ROW OF TABLE WITH BUTTON------------------*/
@@ -141,16 +131,15 @@ function btnAddMouseOut(){
 
 /*------------------ANIMATION BUTTONS------------------*/
 
-function popUpDelete(name){
-  console.log(name);
-  
+/*------------------POP-UP DELETE------------------*/
+
+function popUpDelete(name, row){
   let idDelete = document.getElementById('pop-up-container');
   if(idDelete){
     idDelete.classList.add('show');
     idDelete.addEventListener('click', (e) => {
-      //console.log(e.target.id);
       if(e.target.className == 'btn-delete'){
-        btnRemoveInfo(name);
+        btnRemoveInfo(name, row);
         idDelete.classList.remove('show');
       }else if (e.target.className == 'btn-cancel'){
         idDelete.classList.remove('show');
@@ -160,3 +149,5 @@ function popUpDelete(name){
     });
   }
 }
+
+/*------------------POP-UP DELETE------------------*/
