@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="capture.js"></script>
+  </head>
+    <body>
+      <div class="container-grid">
+        <header class="container-header">
+          <h2>Tecnologias e Experiência</h2>
+        </header>
+
+          <div class="container-form">
+            <form id="form">
+              <p id="msg-empty" class="msg-empty"></p>
+              <label for="technology">Tecnologia:</label>
+              <br />
+              <input oninput="msgOnInput();" type="text" name="technology" id="technology" />
+              <p id="msg-empty-technology" class="msg-empty-technology"></p>
+              <p id="msg-technology-exist" class="msg-technology-exist"></p>
+              <label for="experience">Experiência:</label>
+              <br />
+              <input type="text" name="experience" id="experience" />
+              <p id="msg-empty-experience" class="msg-empty-experience"></p>
+              <button id="btn-addInfo" onclick="addInfo();" onmouseenter="btnAddMouseEnter();" onmouseout="btnAddMouseOut();" type="submit">ADD</button>
+              <br />
+            </form>
+          </div>
+          
+          <div class="container-table">
+            <table id="table" class="table">
+                <tr>
+                  <th>
+                      Tecnologia
+                  </th>
+                  <th>
+                      Experiência
+                  </th>
+                  <th>
+                      Delete
+                  </th>
+                </tr>
+            </table>
+          </div>
+        <footer id="container-footer">
+          <h4 id="lol">© 2020 Copyright - Alexandre Raposo</h4>
+        </footer>
+      </div>
+
+              <!-- DELETE POP-UP -->
+
+              <div id="pop-up-container" class="pop-up-container">
+                <div id="pop-up-delete" class="pop-up-delete">
+                  <button id="close" class="close">x</button>
+                  <h3 class="text-delete">Deseja mesmo eliminar essa tecnologia?</h3>
+                  <button id="btn-delete" class="btn-delete" type="submit">Delete</button>
+                  <button id="btn-cancel" class="btn-cancel" type="submit">Cancel</button>
+                </div>
+              </div>
+
+              <!-- DELETE POP-UP -->
+
+    </body>
+</html>

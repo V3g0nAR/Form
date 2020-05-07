@@ -88,6 +88,7 @@ function addInfo(){
 
     cell3.innerHTML = '<button id="btn-removeInfo" type="submit">Delete</button>';
     cell3.onclick = () => popUpDelete(technology, newRow);
+    
     btnPropreties.style.background = '#45a049';
     btnPropreties.innerText = 'ADDED';
     document.getElementById('technology').value = '';
